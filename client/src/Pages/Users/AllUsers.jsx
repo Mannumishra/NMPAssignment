@@ -13,7 +13,7 @@ const AllUsers = () => {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const response = await axios.get("http://localhost:8000/api/v1/get-users", {
+                const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/get-users`, {
                     withCredentials: true,
                 }
                 );
@@ -40,7 +40,7 @@ const AllUsers = () => {
         if (!confirmDelete.isConfirmed) return;
 
         try {
-            const response = await axios.delete(`http://localhost:8000/api/v1/delete-user-record/${id}`, {
+            const response = await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/delete-user-record/${id}`, {
                 withCredentials: true,
             }
             );
@@ -76,7 +76,7 @@ const AllUsers = () => {
 
     const handleUpdate = async () => {
         try {
-            const response = await axios.put(`http://localhost:8000/api/v1/update-user/${selectedUser._id}`, selectedUser, {
+            const response = await axios.put(`${process.env.REACT_APP_BACKEND_URL}/update-user/${selectedUser._id}`, selectedUser, {
                 withCredentials: true,
             });
 

@@ -26,7 +26,7 @@ const Signup = () => {
         e.preventDefault();
         try {
             const response = await axios.post(
-                'http://localhost:8000/api/v1/sign-up',
+                `${process.env.REACT_APP_BACKEND_URL}/sign-up`,
                 formData
             );
 
@@ -65,7 +65,7 @@ const Signup = () => {
     const handleGoogleSuccess = async (response) => {
         try {
             const { tokenId } = response;
-            const res = await axios.post('http://localhost:8000/api/v1/auth/google', { token: tokenId });
+            const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/auth/google`, { token: tokenId });
 
             if (res.status === 200) {
                 alert('Login Successful');

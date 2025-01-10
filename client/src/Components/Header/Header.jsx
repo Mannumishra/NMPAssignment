@@ -14,7 +14,7 @@ const Header = () => {
 
   const handleLogout = async () => {
     try {
-      const res = await axios.post("http://localhost:8000/api/v1/log-out", {}, {
+      const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/log-out`, {}, {
         withCredentials: true,
       });
 

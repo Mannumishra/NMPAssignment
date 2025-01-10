@@ -10,7 +10,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/v1/get-user-by-userid/" + userid,
+        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/get-user-by-userid/` + userid,
           {
             withCredentials: true,
           }
