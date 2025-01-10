@@ -13,7 +13,7 @@ const app = express()
 
 
 app.use(cors({
-    origin: "http://localhost:3000",
+    origin: "https://nmpclient.assortsmachinetools.com",
     credentials: true,
 }));
 app.use(cookieParser());
@@ -31,6 +31,9 @@ app.use(passport.session());
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 
+app.get("/", (req, res) => {
+    res.send("Server Is Running")
+})
 
 app.use("/api/v1", UserRouter)
 
